@@ -1,0 +1,87 @@
+﻿@*@model ABCVehicleShowroom.Models.modelContact*@
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<!--======= CONTACT  =========-->
+<section class="contact padding-top-100 padding-bottom-100">
+    <div class="container">
+        <div class="contact-form">
+            <h5>PLEASE fill-up FEW details</h5>
+            <div class="row">
+                <div class="col-md-8">
+
+                    <!--======= Success Msg =========-->
+                    <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
+
+                    <!--======= FORM  =========-->
+                    <form role="form" id="contact_form" class="contact-form" method="post" onSubmit=" false">
+                        <ul class="row">
+                            <li class="col-sm-6">
+                                <label>
+                                    full name *
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                </label>
+                            </li>
+                            <li class="col-sm-6">
+                                <label>
+                                    Email *
+                                    <input type="text" class="form-control" name="email" id="email" placeholder="">
+                                </label>
+                            </li>
+                            <li class="col-sm-6">
+                                <label>
+                                    Phone *
+                                    <input type="text" class="form-control" name="company" id="company" placeholder="">
+                                </label>
+                            </li>
+                            <li class="col-sm-6">
+                                <label>
+                                    SUBJECT
+                                    <input type="text" class="form-control" name="website" id="website" placeholder="">
+                                </label>
+                            </li>
+                            <li class="col-sm-12">
+                                <label>
+                                    Message
+                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder=""></textarea>
+                                </label>
+                            </li>
+
+                            <!-- onClick="proceed(); -->
+                            <li class="col-sm-12">
+                                <button type="submit" value="submit" class="btn" id="btn_submit">SEND MAIL</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+
+                <!--======= ADDRESS INFO  =========-->
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <h6>OUR ADDRESS</h6>
+                        <ul>
+                            <li>
+                                <i class="icon-map-pin"></i> 421 Tran Hung Dao Street<br>
+                                Da Nang, Vietnam
+                            </li>
+                            <li> <i class="icon-call-end"></i> 123.456.789</li>
+                            <li> <i class="icon-envelope"></i> <a href="#" target="_top">contact@abcplant.com</a> </li>
+                            <li>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam erat turpis, pellentesque non leo eget.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--======= MAP =========-->
+<div id="map"></div>
+
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.784169858382!2d106.76934711410549!3d10.827822361205396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317526ffee66e4ab%3A0x196b5e5afd8c0221!2zNDAsIDUzIMSQxrDhu51uZyBUxINuZyBOaMahbiBQaMO6LCBQaMaw4bubYyBMb25nIEIsIFF14bqtbiA5LCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1610770078396!5m2!1svi!2s" width="1300" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
+

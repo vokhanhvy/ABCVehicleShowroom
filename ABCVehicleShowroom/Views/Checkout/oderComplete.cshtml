@@ -1,0 +1,101 @@
+﻿@model ABCVehicleShowroom.Models.modelOrder
+@{
+    ViewBag.Title = "Order Successfully";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<br />
+<br />
+<!-- breadcrumb -->
+<div class="container">
+    <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+        <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
+            Home Page
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+
+        <span class="stext-109 cl4">
+            Order successfully
+        </span>
+    </div>
+</div>
+
+
+
+<!-- order complete Page Start -->
+<section class="order-complete inner-page-sec-padding-bottom">
+    <div class="container bg-white">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <div class="order-complete-message text-center">
+                    <h1 style="color:cadetblue;">We have receive your order.</h1>
+                </div>
+                <table class="table table-bordered table-hover">
+
+                    <tr>
+                        <th scope="col"> Order ID</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.Id)</td>
+                    </tr>
+                    <tr>
+                        <th scope="col"> Name</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.DeliveryName)</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Phone</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.DeliveryPhone)</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.DeliveryEmail)</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Address</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.DeliveryAddress)</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <td scope="col"> @(string.Format("{0:dd MM yyyy hh:mm tt}", @Html.DisplayFor(model => model.CreateDate)))</td>
+                        
+                    </tr>
+                    <tr>
+                        <th scope="col">Payment status</th>
+                        <td scope="col">
+                            @if (ViewBag.paymentStatus == 1)
+                            {
+                                <p>Paid</p>
+                            }
+                            else if (ViewBag.statusCod == 1)
+                            {
+                                <p>Paid</p>
+                            }
+                            else
+                            {
+                                <p>Pending</p>
+                            }
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <th scope="col">Payment method</th>
+                        <td scope="col">  @ViewBag.Methodpayment</td>
+                    </tr>
+                </table>
+                    
+            </div>
+            
+        </div>
+        <div class="row">
+
+            <div class="col-12">
+               
+                <br />
+                <h3 class="order-table-title" style="text-align:center;">ORDER DETAILS</h3>
+                <br />
+                <div class="table-responsive">
+                    @Html.Action("productDetailCheckOut", "Checkout", new { orderId = Model.Id })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

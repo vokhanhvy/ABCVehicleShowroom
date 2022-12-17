@@ -1,0 +1,277 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<style>
+    .login-title {
+        font-size: 20px;
+        line-height: 23px;
+        text-transform: capitalize;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .login-form {
+        background-color: #ffffff;
+        padding: 30px;
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+    }
+
+        .login-form label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        .login-form .nice-select {
+            width: 100%;
+            background-color: transparent;
+            border: 1px solid #999999;
+            border-radius: 0;
+            line-height: 23px;
+            padding: 10px 20px;
+            font-size: 14px;
+            height: 45px;
+            color: #7a7a7a;
+            margin-bottom: 15px;
+        }
+
+            .login-form .nice-select::after {
+                width: 6px;
+                height: 6px;
+                border-width: 1px;
+                right: 20px;
+                border-color: #7a7a7a;
+            }
+
+            .login-form .nice-select .current {
+                color: #7a7a7a;
+                display: block;
+                line-height: 23px;
+            }
+
+            .login-form .nice-select .list {
+                width: 100%;
+            }
+
+        .login-form input {
+            width: 100%;
+            background-color: transparent;
+            border: 1px solid #999999;
+            border-radius: 0;
+            line-height: 23px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #7a7a7a;
+            margin-bottom: 15px;
+        }
+
+            .login-form input[type="checkbox"] {
+                width: auto;
+            }
+
+        .login-form .check-box {
+            float: left;
+            margin-right: 70px;
+        }
+
+            .login-form .check-box:last-child {
+                margin-right: 0;
+            }
+
+            .login-form .check-box input[type="checkbox"] {
+                display: none;
+            }
+
+                .login-form .check-box input[type="checkbox"] + label {
+                    position: relative;
+                    padding-left: 30px;
+                    line-height: 20px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #363f4d;
+                    margin: 0;
+                }
+
+                    .login-form .check-box input[type="checkbox"] + label::before {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 20px;
+                        height: 20px;
+                        display: block;
+                        border: 2px solid #999999;
+                        content: "";
+                        -webkit-transition: all 0.3s ease 0s;
+                        -o-transition: all 0.3s ease 0s;
+                        transition: all 0.3s ease 0s;
+                    }
+
+                    .login-form .check-box input[type="checkbox"] + label::after {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        display: block;
+                        content: "\f00c";
+                        font-family: Fontawesome;
+                        font-size: 12px;
+                        line-height: 20px;
+                        opacity: 0;
+                        color: #363f4d;
+                        width: 20px;
+                        text-align: center;
+                        -webkit-transition: all 0.3s ease 0s;
+                        -o-transition: all 0.3s ease 0s;
+                        transition: all 0.3s ease 0s;
+                    }
+
+                .login-form .check-box input[type="checkbox"]:checked + label::before {
+                    border: 2px solid #363f4d;
+                }
+
+                .login-form .check-box input[type="checkbox"]:checked + label::after {
+                    opacity: 1;
+                }
+
+    /*-- Place Order --*/
+    .register-button {
+        display: block;
+        margin-top: 40px;
+        width: 140px;
+        border-radius: 0;
+        height: 36px;
+        border: none;
+        line-height: 24px;
+        padding: 6px 20px;
+        float: left;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #ffffff;
+        background-color: #363f4d;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .register-button:hover {
+            background: #fed700;
+        }
+</style>
+<br />
+<br />
+<!-- breadcrumb -->
+<div class="container">
+    <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+        <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
+            Home Page
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+
+        <span class="stext-109 cl4">
+            Register
+        </span>
+    </div>
+</div>
+
+
+<section class="chart-page padding-top-100 padding-bottom-100">
+    <div class="container">
+
+        <!-- Payments Steps -->
+        <div class="shopping-cart">
+
+            <!-- SHOPPING INFORMATION -->
+            <div class="cart-ship-info register login-form">
+                <div class="row">
+                    
+                    <!-- ESTIMATE SHIPPING & TAX -->
+                    <div class="col-sm-12">
+                        <h6>REGISTER</h6>
+
+                        <form action="" method="post">
+                            @Html.Partial("_MessgeAlert")
+                            @Html.Raw(ViewBag.Error)
+                            <ul class="row">
+                                <!-- FULL NAME -->
+                                <li class="col-md-6">
+                                    <label>
+                                        *FULL NAME
+                                        <input th:field="*{fullname}" type="text" name="fname" value="" placeholder="full name" required="required">
+                                    </label>
+                                </li>
+
+                                <!-- LAST NAME -->
+                                <li class="col-md-6">
+                                    <label>
+                                        *ID LOGIN
+                                        <input th:field="*{customerId}" type="text" name="uname" value="" placeholder="username" required="required">
+                                    </label>
+                                </li>
+
+                                <!-- EMAIL -->
+                                <li class="col-md-6">
+                                    <label>
+                                        *EMAIL
+                                        <input th:field="*{email}" type="email" name="email" value="" placeholder="email" required="required">
+                                    </label>
+                                </li>
+
+                                <!-- PASSWORD -->
+                                <li class="col-md-6">
+                                    <label>
+                                        *PASSWORD
+                                        <input th:field="*{password}" type="password" id="myPassRegister" name="psw" value="" placeholder="password" required="required">
+                                    </label>
+                                </li>
+
+                                <li class="col-md-6 mb-20">
+                                    <label>*RE-ENTER PASSWORD</label>
+                                    <input class="mb-0" name="repsw" type="password" required placeholder="re-enter password">
+                                </li>
+
+                                <li class="col-md-6 mb-20">
+                                    <label>*Phone number</label>
+                                    <input class="mb-0" name="phone" type="text" required placeholder="Phone number">
+                                </li>
+                                <li class="col-md-6 mb-20">
+                                    <label>*Address</label>
+                                    <input class="mb-0" name="address" type="text" required placeholder="Address">
+                                </li>
+
+                                <!-- SUBMIT -->
+                                <li class="col-md-6">
+                                    <button type="submit" class="btn">REGISTER NOW</button>
+                                </li>
+
+                                <!-- Check password -->
+                                <li class="col-md-6">
+                                    <div class="checkbox margin-0 margin-top-20">
+                                        <input id="checkbox1" class="styled" type="checkbox">
+                                        <label for="checkbox1" onclick="hidePass()"> Show password</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+
+                        <!-- show password -->
+                        <script>
+                            function hidePass() {
+                                var y = document.getElementById("myPassRegister");
+                                if (y.type === "password") {
+                                    y.type = "text";
+                                } else {
+                                    y.type = "password";
+                                }
+                            }
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

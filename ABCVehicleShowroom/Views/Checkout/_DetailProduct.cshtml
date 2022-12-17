@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ABCVehicleShowroom.Models.modelOrderdetail>
+<table class="table order-details-table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int sum = 0;}
+        @foreach (var item in Model)
+        {
+            sum += (int)item.Amount;
+            <tr>
+                <td>
+                    @Html.Action("subnameProduct", "Checkout", new { id = item.ProductId })
+                    <strong>× @item.Quantity</strong>
+                </td>
+                <td><span>@item.Amount.ToString("N0") $</span></td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Sum:</th>
+            <td><span>@sum.ToString("N0") $/span></td>
+        </tr>
+        <tr>
+            <th>Payment Method:</th>
+            <td>COD</td>
+        </tr>
+        <tr>
+            <th>Total:</th>
+            <td><span>@sum.ToString("N0") $</span></td>
+        </tr>
+    </tfoot>
+</table>

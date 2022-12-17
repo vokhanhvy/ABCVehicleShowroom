@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<!-- breadcrumb -->
+<div class="container">
+    <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+        <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
+            Home Page
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+
+        <span class="stext-109 cl4">
+            Login
+        </span>
+    </div>
+</div>
+<section class="chart-page padding-top-100 padding-bottom-100">
+    <div class="container">
+
+        <!-- Payments Steps -->
+        <div class="shopping-cart">
+
+            <!-- SHOPPING INFORMATION -->
+            <div class="cart-ship-info">
+                <div class="row">
+
+                    <!-- ESTIMATE SHIPPING & TAX -->
+                    <div class="col-sm-7">
+                        <h6>LOGIN YOUR ACCOUNT</h6>
+
+                        <form action="login" method="post">
+                            @Html.Raw(ViewBag.Error)
+                            <ul class="row">
+
+                                <!-- Name -->
+                                <li class="col-md-12">
+                                    <label>
+                                        USERNAME(* ID LOGIN)
+                                        <input name="user" type="text" value="" placeholder="user name" required="required">
+                                    </label>
+                                </li>
+
+                                <!-- LAST NAME -->
+                                <li class="col-md-12">
+                                    <label>
+                                        PASSWORD
+                                        <input type="password" id="myPass" name="password" value="" placeholder="password">
+                                    </label>
+                                </li>
+
+                                <!-- LOGIN -->
+                                <li class="col-md-4">
+                                    <button type="submit" class="btn">LOGIN</button>
+                                </li>
+
+
+
+                                <!-- CREATE AN ACCOUNT -->
+                                <li class="col-md-4">
+                                    <div class="checkbox margin-0 margin-top-20">
+                                        <input id="checkbox1" class="styled" type="checkbox">
+                                        <label for="checkbox1" onclick="hidePass()"> Show password</label>
+                                    </div>
+                                </li>
+
+                                <!-- FORGET PASS -->
+                                <li class="col-md-4">
+                                    <div class="checkbox margin-0 margin-top-20 text-right">
+                                        <a href="#.">Forget Password</a>
+                                    </div>
+                                    <div class="checkbox margin-0 margin-top-20 text-right">
+                                        <a href="~/dang-ky">Don't have account?</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+
+                        <!-- show password -->
+                        <script>
+                            function hidePass() {
+                                var x = document.getElementById("myPass");
+                                if (x.type === "password") {
+                                    x.type = "text";
+                                } else {
+                                    x.type = "password";
+                                }
+                            }
+                        </script>
+
+                    </div>
+
+                    <!-- SUB TOTAL -->
+                    <div class="col-sm-5">
+                        <h6>LOGIN WITH</h6>
+
+                        <ul class="login-with">
+                            <li>
+                                <a href="#."><i class="fa fa-facebook"></i>FACEBOOK</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#."><i class="fa fa-google"></i>GOOGLE</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#."><i class="fa fa-twitter"></i>TWITTER</a>
+
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

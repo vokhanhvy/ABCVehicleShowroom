@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ABCVehicleShowroom.Models.modelOrder>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Order Management</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Orders</a></li>
+                        <li class="breadcrumb-item active"><a href="~/admin/order/trash">Trash</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="col-12">
+            <!-- /.card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            Order Management
+                        </div>
+                        <div class="col-4">
+                            <div class="float-right pt-1">
+                                @Html.Partial("_Message")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Created Date</th>
+                                <th>Status</th>
+                                <th>Detail</th>
+                                <th>Payment/th>
+                                <th>Tools</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                String dh1 = "Confirmed";
+                                String dh2 = "Pending";
+                                <tr>
+
+                                    <td><a class="card-link " href="@Url.Action("Detail", "Orders", new { id = item.Id })"> @Html.DisplayFor(modelItem => item.Id)</a></td>
+                                    <td class="font-weight-bold"> @Html.DisplayFor(modelItem => item.DeliveryName)</td>
+                                    <td width="10%" style="font-size:14px;">@Html.DisplayFor(modelItem => item.CreateDate) </td>
+                                    <td>
+                                        @if (item.Status == 1)
+                                        {
+                                            <p class="text-success"> @dh1</p>
+                                        }
+                                        else
+                                        { <p class="text-danger"> @dh2</p>}
+                                    </td>
+
+                                    <td><a href="@Url.Action("Detail", "Order", new { id = item.Id })">Detail</a></td>
+                                    <td>
+                                        @item.DeliveryPaymentMethod
+                                    </td>
+                                    <td>
+                                        @if (item.Status == 1)
+                                        {
+                                            <a href="@Url.Action("Status","Order",new {id = item.Id })" class="btn btn-success btn-sm" title="Display"><i class="fas fa-toggle-on"></i></a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@Url.Action("Status","Order",new {id = item.Id })" class="btn btn-secondary btn-sm" title="Hide"><i class="fas fa-toggle-off"></i></a>
+                                        }
+                                        <a href="@Url.Action("Deltrash","Order",new {id = item.Id })" class="btn btn-secondary btn-sm" title="Edit"><i class="fas fa-trash"></i></a>
+                                        
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
